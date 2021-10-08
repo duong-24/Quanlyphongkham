@@ -23,8 +23,10 @@
                     <th>Họ và tên</th>
                     <th>Chuyên khoa</th>
                     <th>Tên tài khoản</th>
-                    <th>Mật khẩu</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
                     <th>Cấp phát quyền</th>
+                    
                     <th style="width:50px"></th>
                     <th style="width:50px"></th>
                 </tr>
@@ -43,25 +45,30 @@
                     }
                 ////lay danh sach
                 $s = new data();
-                $sql = 'SELECT b.Hoten,b.ID_Khoa,ID_Bacsi,b.Tendangnhap
-                            ,Tenkhoa,b.Matkhau FROM bacsi b join khoa k on b.ID_Khoa=k.ID_Khoa where 1 '.$additional.'';
+                $dem=1;
+                $sql = 'SELECT b.Hoten,b.ID_Khoa,ID_Bacsi,t.Tendangnhap,b.Gioitinh
+                            ,Tenkhoa,b.Ngaysinh FROM bacsi b join khoa k on b.ID_Khoa=k.ID_Khoa join taikhoan t on t.ID_Taikhoan=b.ID_Taikhoan where 1 '.$additional.'';
                 $caterogyList = $s->executeLesult($sql);
                 foreach ($caterogyList as $item) {
                     echo '<tr>
-                                <td>' . ($item['ID_Bacsi']) . '</td>
+                                <td>' . ($dem) . '</td>
                                 <td>' . $item['Hoten'] . '</td>
                                 <td>' . $item['Tenkhoa'] . '</td>
                                 <td>' . $item['Tendangnhap'] . '</td>
-                                <td>' . $item['Matkhau'] . '</td>
+                                <td>' . $item['Ngaysinh'] . '</td>
+                                <td>' . $item['Gioitinh'] . '</td>
                                 <td><button class="btn btn-primary">Capquyen</button></td>
                                 <td>
                                 <button class="btn btn-warning">Xóa</button>
                                 </td>
                                 <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#myModal1">Sửa</button>
+                                <button  class="btn btn-success" data-toggle="modal" data-target="#myModal1" name="id1">Sửa</button>
                                 </td>
                                 ';
-                };
+                    $dem++;
+                }
+
+                
                 ?>
             </tbody>
         </table>

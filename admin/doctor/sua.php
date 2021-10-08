@@ -4,7 +4,7 @@
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Thêm Bác sĩ</h4>
+                <h4 class="modal-title">Sửa Bác sĩ</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
@@ -25,6 +25,10 @@
                     <div class="form-group">
                         <label>Nhập lại mật khẩu:</label>
                         <input type="password" class="form-control" name="nlpassword" placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tên Khoa:</label>
+                        <input type="text" class="form-control" name="tenkhoa" placeholder="Enter Tên khoa" required>
                     </div>
                     <div class="form-group">
                         <label>Ngày sinh:</label>
